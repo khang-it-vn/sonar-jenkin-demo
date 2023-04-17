@@ -11,7 +11,7 @@
     <groupId>com.sources.nhk</groupId>
     <artifactId>sonar-jenkins-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>sonar-jenkins-demo</name>
     <description>sonar-jenkins-demo</description>
     <properties>
@@ -66,6 +66,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>sonar-jenkins-demo</finalName>
     </build>
 
 </project>
