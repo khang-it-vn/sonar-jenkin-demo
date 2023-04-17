@@ -47,6 +47,7 @@ pipeline{
                             docker rmi  13.212.127.164:8085/spring-boot-rest-api:${VERSION}
 
                         '''
+                    }
 
                 }
             }
