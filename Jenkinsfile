@@ -40,13 +40,14 @@ pipeline{
                         sh """
                             docker build -t 13.212.127.164:8085/spring-boot-rest-api:${VERSION} .
 
-                            echo "$nexus_credential" | docker login -u admin --password-stdin 13.212.127.164:8085
+                            echo "$nexus_credential" | docker login -u admin --password-stdin http://13.212.127.164:8085
 
                             docker push 13.212.127.164:8085/spring-boot-rest-api:${VERSION}
 
                             docker rmi 13.212.127.164:8085/spring-boot-rest-api:${VERSION}
                         """
                     }
+
 
 
                 }
