@@ -37,17 +37,17 @@ pipeline{
             steps{
                 script{
                     withCredentials([string(credentialsId: 'nexus_cres', variable: 'nexus_credential')]) {
-                        sh '''
+                        sh """
                             docker build -t 13.212.127.164:8085/spring-boot-rest-api:${VERSION} .
 
-                            docker login -u admin -p $nexus_credential 13.212.127.164:8085
+                            echo "$nexus_credential" | docker login -u admin --password-stdin 13.212.127.164:8085
 
                             docker push 13.212.127.164:8085/spring-boot-rest-api:${VERSION}
 
-                            docker rmi  13.212.127.164:8085/spring-boot-rest-api:${VERSION}
-
-                        '''
+                            docker rmi 13.212.127.164:8085/spring-boot-rest-api:${VERSION}
+                        """
                     }
+
 
                 }
             }
