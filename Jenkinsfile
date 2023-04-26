@@ -38,13 +38,13 @@ pipeline{
                 script{
                     withCredentials([string(credentialsId: 'nexus_cres', variable: 'nexus_credential')]) {
                         sh """
-                            docker build -t 13.212.127.164:8085/spring-boot-rest-api:${VERSION} .
+                            docker build -t 13.212.127.164:8089/spring-boot-rest-api:${VERSION} .
 
-                            echo "$nexus_credential" | docker login -u admin --password-stdin http://13.212.127.164:8085
+                            echo "$nexus_credential" | docker login -u admin --password-stdin http://13.212.127.164:8089
 
-                            docker push 13.212.127.164:8085/spring-boot-rest-api:${VERSION}
+                            docker push 13.212.127.164:8089/spring-boot-rest-api:${VERSION}
 
-                            docker rmi 13.212.127.164:8085/spring-boot-rest-api:${VERSION}
+                            docker rmi 13.212.127.164:8089/spring-boot-rest-api:${VERSION}
                         """
                     }
 
